@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638675697467872144
-    m_Hash: 1515549601
+      ticks: 638676505709909131
+    m_Hash: 2645270968
   m_LockFileStatus:
     m_FilePath: C:/GitHub/PickelApper/PickelApper/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638675697553990143
-    m_Hash: 2671941888
+      ticks: 638676505709950163
+    m_Hash: 3142382408
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -310,12 +310,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.rider.git
         revision: bb7732dcafe867368246b7661dda05368b74dd8e
         path: 
-    - packageId: com.unity.ide.visualstudio@2.0.18
+    - packageId: com.unity.ide.visualstudio@2.0.22
       testable: 0
       isDirectDependency: 1
-      version: 2.0.18
+      version: 2.0.22
       source: 1
-      resolvedPath: C:\GitHub\PickelApper\PickelApper\Library\PackageCache\com.unity.ide.visualstudio@2.0.18
+      resolvedPath: C:\GitHub\PickelApper\PickelApper\Library\PackageCache\com.unity.ide.visualstudio@2.0.22
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -324,7 +324,7 @@ m_PackageAssets:
         email: 
         url: 
       category: 
-      type: asset
+      type: assets
       description: Code editor integration for supporting Visual Studio as code editor
         for unity. Adds support for generating csproj files for intellisense purposes,
         auto discovery of installations, etc.
@@ -408,13 +408,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 638173205920000000
+      datePublishedTicks: 638326061910000000
       documentationUrl: https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@2.0/manual/index.html
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
-        revision: 9d3c07127cbe1916b8abbfd18f71fb8d9df8008c
+        revision: 700b44077345e97d37d464ff25507638983aed64
         path: 
     - packageId: com.unity.ide.vscode@1.2.5
       testable: 0
