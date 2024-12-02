@@ -268,7 +268,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 1
   orthographic size: 16
@@ -335,13 +335,17 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
---- !u!1001 &1665232120
+--- !u!1001 &2081754383
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1584895300906064753, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -388,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1584895300906064755, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_Name
-      value: AppleTree_Full
+      value: AppleTree_Health3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}

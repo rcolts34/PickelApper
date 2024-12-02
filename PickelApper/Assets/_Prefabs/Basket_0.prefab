@@ -227,6 +227,6 @@ MonoBehaviour:
   boundsType: 2
   radius: 2
   keepOnScreen: 0
-  isOnScreen: 1
+  screenLocs: 0
   camWidth: 0
   camHeight: 0

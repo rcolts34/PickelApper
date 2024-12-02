@@ -17,23 +17,28 @@ public class BoundsCheck : MonoBehaviour
         offDown = 8
     }
     public enum eType { center, inset, outset };
+    //public int width = 1920;
+    //public int height = 1080;
+
 
     [Header("Inscribed")]
     public eType boundsType = eType.center;
     public float radius = 1f;
     public bool keepOnScreen = true;
 
+
     [Header("Dynamic")]
     public eScreenLocs screenLocs = eScreenLocs.onScreen;
-    //public bool isOnScreen = true;
     public float camWidth;
     public float camHeight;
+
 
     void Awake()
     {
         camHeight = Camera.main.orthographicSize;
         camWidth = camHeight * Camera.main.aspect;
     }
+
 
     void LateUpdate()
     // Find the checkRadius that will enable center, inset, or outset
@@ -44,21 +49,19 @@ public class BoundsCheck : MonoBehaviour
 
         Vector3 pos = transform.position;
         screenLocs = eScreenLocs.onScreen;
-        //isOnScreen = true;
 
         // Restrict the x position to camWidth
         if (pos.x > camWidth + checkRadius)
         {
             pos.x = camWidth + checkRadius;
             screenLocs |= eScreenLocs.offRight;
-            //isOnScreen = false;
+
         }
 
         if (pos.x < -camWidth - checkRadius)
         {
             pos.x = -camWidth - checkRadius;
             screenLocs |= eScreenLocs.offLeft;
-            //isOnScreen = false;
         }
 
         // Restrict the Y position to camHeight
@@ -66,21 +69,18 @@ public class BoundsCheck : MonoBehaviour
         {
             pos.y = camHeight + checkRadius;
             screenLocs |= eScreenLocs.offUp;
-            //isOnScreen = false;
         }
 
         if (pos.y < -camHeight - checkRadius)
         {
             pos.y = -camHeight - checkRadius;
             screenLocs |= eScreenLocs.offDown;
-            //isOnScreen = false;
         }
 
         if (keepOnScreen && !isOnScreen)
         {
             transform.position = pos;
             screenLocs = eScreenLocs.onScreen;
-            //isOnScreen = true;
         }
     }
 
