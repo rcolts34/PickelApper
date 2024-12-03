@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1584895300906064754}
   - component: {fileID: 1584895300906064753}
   - component: {fileID: 5665711991536367491}
-  - component: {fileID: 1346392329052544475}
+  - component: {fileID: -5744252269142951230}
   m_Layer: 0
   m_Name: AppleTree_Health3
   m_TagString: Untagged
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLevel: 3
---- !u!114 &1346392329052544475
+--- !u!114 &-5744252269142951230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,14 +74,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1584895300906064755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f798edbd012ab694784eccf0981c73ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 946dc963a04cb0f42b5a5d89e2d25f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apple: {fileID: 405883479212155931, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
-  appleTransform: {fileID: 1160329751730770526}
-  canFire: 1
-  timer: 0
-  timeBetweenFiring: 0.3
+  rotationSpeed: 100
+  smoothingTime: 0.5
 --- !u!1 &1584895301025690418
 GameObject:
   m_ObjectHideFlags: 0

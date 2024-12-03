@@ -316,7 +316,7 @@ MonoBehaviour:
   prefabEnemies:
   - {fileID: 165922, guid: 975da3ed9b4e81549a02e5e08d19369b, type: 3}
   enemySpawnPerSecond: 0.5
-  enemyInsetDefault: 1.5
+  enemyInsetDefault: 20
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,17 +335,13 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
---- !u!1001 &2081754383
+--- !u!1001 &1633066462
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1584895300906064753, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_RootOrder
       value: 2

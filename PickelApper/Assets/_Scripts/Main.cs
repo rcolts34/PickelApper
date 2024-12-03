@@ -10,6 +10,8 @@ public class Main : MonoBehaviour
     public GameObject[] prefabEnemies;
     public float enemySpawnPerSecond = 0.5f;
     public float enemyInsetDefault = 1.5f;
+    private float camWidth;
+    private float camHeight;
 
     private BoundsCheck bndCheck;
 
@@ -23,6 +25,19 @@ public class Main : MonoBehaviour
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
     }
 
+    //void SpawnEnemy()
+    //{
+    //    // Calculate random X-position within screen bounds
+    //    //float xPosition = Random.Range(-camWidth, camWidth);
+
+    //    // Set spawn position at the top of the screen
+
+
+    //    // Instantiate the enemy
+    //    //Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+    //}
+
     public void SpawnEnemy()
     {
         // Pick a random enemy prefab to instantiate
@@ -31,32 +46,22 @@ public class Main : MonoBehaviour
 
         // Postion enemy above the screen with a random x position
         float enemyInset = enemyInsetDefault;
-        if (go.GetComponent<BoundsCheck>() != null)
-        {
-            enemyInset = Mathf.Abs(go.GetComponent<BoundsCheck>().radius);
-        }
+        //if (go.GetComponent<BoundsCheck>() != null)
+        //{
+        //    enemyInset = Mathf.Abs(go.GetComponent<BoundsCheck>().radius);
+        //}
 
         // Set the initial position for the spawned enemy
+        //float xMin = -bndCheck.camWidth + enemyInset;
+        //float xMax = bndCheck.camWidth - enemyInset;
+        //pos.x = Random.Range(xMin, xMax);
+        //pos.y = bndCheck.camHeight = enemyInset;
         Vector3 pos = Vector3.zero;
-        float xMin = -bndCheck.camWidth + enemyInset;
-        float xMax = bndCheck.camWidth - enemyInset;
-        pos.x = Random.Range(xMin, xMax);
-        pos.y = bndCheck.camHeight = enemyInset;
+        pos.x = Random.Range(-camWidth + -enemyInset, camWidth + enemyInset);
+        pos.y = camHeight + enemyInset;
         go.transform.position = pos;
 
-        // Invoke SpawnEnemy() again
+        //Invoke SpawnEnemy() again
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

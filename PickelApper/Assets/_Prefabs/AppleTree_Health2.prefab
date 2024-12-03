@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584895300906064754}
   - component: {fileID: 1584895300906064753}
+  - component: {fileID: 4209915733542474945}
   m_Layer: 0
   m_Name: AppleTree_Health2
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584895300906064755}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0.9914449, y: -0, z: 0.13052624, w: 0}
   m_LocalPosition: {x: 0, y: -12.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -32,7 +33,7 @@ Transform:
   - {fileID: 1584895301025690417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: -15, z: 0}
 --- !u!54 &1584895300906064753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47,8 +48,22 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &4209915733542474945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584895300906064755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946dc963a04cb0f42b5a5d89e2d25f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
+  smoothingTime: 0.1
 --- !u!1 &1584895301025690418
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +124,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cd1114a9ea8b2cc4b9f5520301d75b5d, type: 2}
+  - {fileID: 2100000, guid: 03197e7742ce26243bd814fcaeb9069f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 1584895302036506545}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.75, z: 0}
-  m_LocalScale: {x: 1, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1584895300906064754}
   m_RootOrder: 0
@@ -204,7 +219,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 080fefef19b18504ab70c9691d723ac7, type: 2}
+  - {fileID: 2100000, guid: c6eca10c4093f4c4b8e12a8f6be8b3ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
