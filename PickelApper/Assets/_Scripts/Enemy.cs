@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float speed = 10f; // movement speed (10f = 10m/s)
     public float health = 10; // Damage needed to destroy enemy
     public int score = 100; // Points earned for destroying enemy
+    public float damageToPlayer = 10;
 
     private BoundsCheck bndCheck;
 
@@ -37,6 +38,14 @@ public class Enemy : MonoBehaviour
         // Check where Enemy has gone off the bottom of the screen
         if (bndCheck.LocIs(BoundsCheck.eScreenLocs.offDown))
         {
+            {
+                playerHealth Phealth = FindObjectOfType<playerHealth>();
+                if (Phealth != null)
+                {
+                    Phealth.TakeDamage(damageToPlayer);
+                }
+            }
+
             Destroy(gameObject);
         }
     }

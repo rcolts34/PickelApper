@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class Main : MonoBehaviour
 {
+    [DllImport("user32.dll")]
+    public static extern bool SetCursorPos(float X, float Y);
+
     static private Main S;
 
     [Header("Inscribed")]
     public GameObject[] prefabEnemies;
     public float enemySpawnPerSecond = 0.5f;
     public float enemyInsetDefault = 1.5f;
-    private float camWidth;
-    private float camHeight;
+    public float camWidth;
+    public float camHeight;
 
     private BoundsCheck bndCheck;
+
+
 
     void Awake()
     {
@@ -23,20 +30,18 @@ public class Main : MonoBehaviour
 
         // Invoke SpawnEnemy() (every 2 seconds based on 0.5f)
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
+
     }
 
-    //void SpawnEnemy()
-    //{
-    //    // Calculate random X-position within screen bounds
-    //    //float xPosition = Random.Range(-camWidth, camWidth);
+    void Start()
+    {
+        camHeight = Camera.main.orthographicSize;
+        camWidth = camHeight * Camera.main.aspect;
 
-    //    // Set spawn position at the top of the screen
+        SetCursorPos(camHeight, camWidth);  // Center the Cursor
+    }
 
 
-    //    // Instantiate the enemy
-    //    //Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
-    //}
 
     public void SpawnEnemy()
     {
@@ -46,16 +51,7 @@ public class Main : MonoBehaviour
 
         // Postion enemy above the screen with a random x position
         float enemyInset = enemyInsetDefault;
-        //if (go.GetComponent<BoundsCheck>() != null)
-        //{
-        //    enemyInset = Mathf.Abs(go.GetComponent<BoundsCheck>().radius);
-        //}
 
-        // Set the initial position for the spawned enemy
-        //float xMin = -bndCheck.camWidth + enemyInset;
-        //float xMax = bndCheck.camWidth - enemyInset;
-        //pos.x = Random.Range(xMin, xMax);
-        //pos.y = bndCheck.camHeight = enemyInset;
         Vector3 pos = Vector3.zero;
         pos.x = Random.Range(-camWidth + -enemyInset, camWidth + enemyInset);
         pos.y = camHeight + enemyInset;
