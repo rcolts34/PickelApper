@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 473692}
   - component: {fileID: 3309164}
   - component: {fileID: 2388660}
+  - component: {fileID: -5660201672550772714}
+  - component: {fileID: -777032903510527}
   m_Layer: 0
   m_Name: Basket_4
   m_TagString: Untagged
@@ -82,6 +84,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-5660201672550772714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528c47186742ff84eaac9f7c73498dba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundsType: 2
+  radius: 2
+  keepOnScreen: 0
+  screenLocs: 0
+  camWidth: 0
+  camHeight: 0
+--- !u!114 &-777032903510527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554c5cf3d0691cb42900aa6b98286965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  health: 10
+  score: 100
+  damageToPlayer: 10
 --- !u!1 &166990
 GameObject:
   m_ObjectHideFlags: 0
