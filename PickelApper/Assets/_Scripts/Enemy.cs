@@ -50,6 +50,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit Enemy!");
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Hit Enemy! (2D)");
+            Destroy(gameObject);
+        }
+    }
+
     public virtual void Move()
     {
         Vector3 tempPos = pos;

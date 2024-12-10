@@ -83,7 +83,7 @@ MonoBehaviour:
   rotationVelocity: 0
   canFire: 1
   timeBetweenFiring: 0.5
-  Projectile: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
+  Projectile: {fileID: 0}
   appleTransform: {fileID: 1762829798895117522}
 --- !u!114 &5913449554483420273
 MonoBehaviour:

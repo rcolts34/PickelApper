@@ -67,7 +67,7 @@ public class Aiming : MonoBehaviour
             GameObject projectile = Instantiate(Projectile, appleTransform.position, appleTransform.rotation);
 
             //AdjustProjectileRotation(projectile);
-            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 // Use the fire point's up direction for movement
