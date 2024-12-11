@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584895300906064754}
-  - component: {fileID: 1584895300906064753}
   - component: {fileID: 5665711991536367491}
   - component: {fileID: -5744252269142951230}
   - component: {fileID: 5913449554483420273}
-  m_Layer: 0
+  - component: {fileID: 8307958313301088848}
+  - component: {fileID: 7818148834567276586}
+  m_Layer: 8
   m_Name: AppleTree_Health3
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -37,22 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 90, z: 0}
---- !u!54 &1584895300906064753
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584895300906064755}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &5665711991536367491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +68,7 @@ MonoBehaviour:
   rotationVelocity: 0
   canFire: 1
   timeBetweenFiring: 0.5
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
   appleTransform: {fileID: 1762829798895117522}
 --- !u!114 &5913449554483420273
 MonoBehaviour:
@@ -99,8 +84,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 3661262456521844373, guid: 2bf2fee449b306b4a87bf9dde782af10, type: 3}
   damagePerHit: 10
+--- !u!136 &8307958313301088848
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584895300906064755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!136 &7818148834567276586
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584895300906064755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 3
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &1584895301025690418
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,8 +125,9 @@ GameObject:
   - component: {fileID: 1584895301025690417}
   - component: {fileID: 1584895301025690422}
   - component: {fileID: 1584895301025690423}
-  - component: {fileID: 1584895301025690416}
-  m_Layer: 0
+  - component: {fileID: 5920584036689605717}
+  - component: {fileID: 5595527590207733999}
+  m_Layer: 8
   m_Name: Leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,8 +197,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1584895301025690416
-SphereCollider:
+--- !u!54 &5920584036689605717
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584895301025690418}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!136 &5595527590207733999
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,9 +223,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.3
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!1 &1584895302036506545
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,8 +238,9 @@ GameObject:
   - component: {fileID: 1584895302036506544}
   - component: {fileID: 1584895302036506549}
   - component: {fileID: 1584895302036506550}
-  - component: {fileID: 1584895302036506551}
-  m_Layer: 0
+  - component: {fileID: 3804752192755903579}
+  - component: {fileID: 6610947282350240679}
+  m_Layer: 8
   m_Name: Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +310,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1584895302036506551
+--- !u!54 &3804752192755903579
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584895302036506545}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!136 &6610947282350240679
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,12 +334,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584895302036506545}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.50000036
+  m_Height: 2.1
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604638, y: -0.00000047683716, z: -0.000000089406974}
 --- !u!1 &6079819136800068098
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762829798895117522}
   - component: {fileID: 1203302502920288854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: appleTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4732237959876840567}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2650200310597316547}
   - component: {fileID: -6887677645975431765}
   - component: {fileID: 3482679160143547056}
-  - component: {fileID: 8944061732606662069}
-  - component: {fileID: -1733402270915565966}
-  m_Layer: 0
+  - component: {fileID: 6553829484000103873}
+  - component: {fileID: -8928717869648218538}
+  m_Layer: 9
   m_Name: Basket_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4394300649292585759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,46 +119,33 @@ MonoBehaviour:
   health: 10
   score: 100
   damageToPlayer: 10
---- !u!50 &8944061732606662069
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!54 &6553829484000103873
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4394300649292585759}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.25
-  m_LinearDrag: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
   m_Constraints: 0
---- !u!66 &-1733402270915565966
-CompositeCollider2D:
+  m_CollisionDetection: 2
+--- !u!64 &-8928717869648218538
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4394300649292585759}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths: []
-  m_CompositePaths:
-    m_Paths: []
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: -1
+  m_Mesh: {fileID: -7168838378446783805, guid: 85bb58f8a51949f4881271e77c6a6895, type: 3}

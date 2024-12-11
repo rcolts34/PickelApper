@@ -17,6 +17,7 @@ public class Main : MonoBehaviour
     public float enemyInsetDefault = 1.5f;
     public float camWidth;
     public float camHeight;
+    public float gameRestartDelay = 2;
 
     private BoundsCheck bndCheck;
 
@@ -35,10 +36,10 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        camHeight = Camera.main.orthographicSize;
-        camWidth = camHeight * Camera.main.aspect;
+        //camHeight = Camera.main.orthographicSize;
+        //camWidth = camHeight * Camera.main.aspect;
 
-        SetCursorPos(camHeight, camWidth);  // Center the Cursor
+        //SetCursorPos(camHeight, camWidth);  // Center the Cursor
     }
 
 
@@ -59,5 +60,22 @@ public class Main : MonoBehaviour
 
         //Invoke SpawnEnemy() again
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
+    }
+
+    void DelayedRestart()
+    {
+        // Invoke Restart method in gameRetartDelay seconds
+        Invoke(nameof(Restart), gameRestartDelay);
+    }
+
+    void Restart()
+    {
+        // Reload Scene_0 to restart the game
+        SceneManager.LoadScene("__Scene_0");
+    }
+
+    static public void PLAYER_DIED()
+    {
+        S.DelayedRestart();
     }
 }

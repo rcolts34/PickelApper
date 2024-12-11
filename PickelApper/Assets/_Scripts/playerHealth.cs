@@ -8,6 +8,7 @@ public class playerHealth : MonoBehaviour
     public float health;
     public float maxHealth;
     public Image healthBar;
+    //public GameObject HealthBar;
     public float damagePerHit = 10;
 
     void Start()
@@ -21,14 +22,36 @@ public class playerHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
+
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        Debug.Log("Player hit by: " + go.tag);
+
+        if (other.CompareTag("Enemy"))
+        {
+            Debug.Log("Player hit by Enemy!");
+            //TakeDamage(damagePerHit);
+            health -= damagePerHit;
+            Destroy(other.gameObject);
+        }
+    }
+
 
     void Die()
     {
         Debug.Log("Player is dead!");
         {
-            // Add logic for player death
+            if (gameObject.CompareTag("Player"))  // Add logic for player death
+            {   
+                Destroy(gameObject);
+                Main.PLAYER_DIED();
+                //healthBar.gameObject.SetActive(false);
+            }
         }
     }
 

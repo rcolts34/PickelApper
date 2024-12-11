@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1584895300906064754}
   - component: {fileID: 1584895300906064753}
   - component: {fileID: -8449208317786073405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AppleTree_Health2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 1584895301025690422}
   - component: {fileID: 1584895301025690423}
   - component: {fileID: 1584895301025690416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 1584895302036506549}
   - component: {fileID: 1584895302036506550}
   - component: {fileID: 1584895302036506551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4639736841188871826}
   - component: {fileID: 7056607761470767256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: appleTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2443028376968290373}
   - component: {fileID: 8220171289490991013}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
                 playerHealth Phealth = FindObjectOfType<playerHealth>();
                 if (Phealth != null)
                 {
+                    Debug.Log("Damage: Enemy reached goal!");
                     Phealth.TakeDamage(damageToPlayer);
                 }
             }
@@ -50,24 +51,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision coll)
     {
-        if (other.CompareTag("Enemy"))
+        GameObject otherGO = coll.gameObject;
+        if (otherGO.GetComponent<Projectile>() != null)
         {
-            Debug.Log("Hit Enemy!");
+            Debug.Log("Enemy Hit!");
+            Destroy(otherGO);
             Destroy(gameObject);
         }
+            else
+            {
+            Debug.Log("Enemy hit by non-Projectile: " + otherGO.name);
+            }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log("Hit Enemy! (2D)");
-            Destroy(gameObject);
-        }
-    }
-
     public virtual void Move()
     {
         Vector3 tempPos = pos;

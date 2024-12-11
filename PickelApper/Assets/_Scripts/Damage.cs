@@ -14,13 +14,20 @@ public class Damage : MonoBehaviour
 
     void Update()
     {
-          
+        //if (pHealth = null)
+        //{
+        //    Destroy();
+        //}
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        Transform rootT = other.gameObject.transform.root;
+        GameObject go = rootT.gameObject;
+        Debug.Log("Player hit by: " + go.tag);
+
+        if (other.CompareTag("Player"))
         {
+            Debug.Log("Player hit by Enemy!");
             pHealth.health -= damage;
         }
     }

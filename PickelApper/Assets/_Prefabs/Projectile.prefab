@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6612188135129625727}
   - component: {fileID: -4996874590949531573}
-  m_Layer: 0
+  - component: {fileID: 6006354802113979023}
+  m_Layer: 10
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 5
-  rb: {fileID: 8131034230699526777, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+  rb: {fileID: 5239142139799047622, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+--- !u!136 &6006354802113979023
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297484996522968717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1195285726940985783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54,9 +69,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6612188135129625727}
     m_Modifications:
+    - target: {fileID: -6894750959475341785, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 405883479212155931, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
       propertyPath: m_Name
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 405883479212155931, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133908884223545543, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+      propertyPath: m_MotionVectors
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3745487491091994120, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
       propertyPath: m_RootOrder
@@ -102,11 +129,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5239142139799047622, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+      propertyPath: m_Constraints
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239142139799047622, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239142139799047622, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8131034230699526777, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6894750959475341785, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
 --- !u!4 &2552458032015241151 stripped
 Transform:
