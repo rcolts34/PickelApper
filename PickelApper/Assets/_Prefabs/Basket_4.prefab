@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3309164}
   - component: {fileID: 2388660}
   - component: {fileID: -5660201672550772714}
-  - component: {fileID: -777032903510527}
+  - component: {fileID: 250819407342037864}
   - component: {fileID: 278758900403210386}
   - component: {fileID: -3023357000585935642}
   m_Layer: 9
@@ -104,7 +104,7 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
---- !u!114 &-777032903510527
+--- !u!114 &250819407342037864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 105870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554c5cf3d0691cb42900aa6b98286965, type: 3}
+  m_Script: {fileID: 11500000, guid: a3f899fd5ba3c4443a5d9e18107ef317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
@@ -134,8 +134,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 2
+  m_Constraints: 120
+  m_CollisionDetection: 3
 --- !u!64 &-3023357000585935642
 MeshCollider:
   m_ObjectHideFlags: 0

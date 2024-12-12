@@ -4,12 +4,12 @@ using UnityEngine;
 public class Projectile: MonoBehaviour
 {
     public float speed = 20f; // Speed of projectile
-    public float lifetime = 5f; // How long projectile lives
+    public float lifeTime = 5f; // How long projectile lives
     public Rigidbody rb;
 
     void Start()
     {
-        Destroy(gameObject, lifetime); // Destroy after lifetime expires
+        Destroy(gameObject, lifeTime); // Destroy after lifetime expires
         rb.velocity = transform.forward * speed;
     }
 

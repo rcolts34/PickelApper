@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3376273990179056766}
   - component: {fileID: 9072050808581296263}
   - component: {fileID: 5036387970105673245}
-  - component: {fileID: -4798917109604081313}
+  - component: {fileID: 3381634783105503206}
   - component: {fileID: 4567269935610588520}
   - component: {fileID: 8722253676757077493}
   m_Layer: 9
@@ -103,7 +103,7 @@ MonoBehaviour:
   screenLocs: 0
   camWidth: 0
   camHeight: 0
---- !u!114 &-4798917109604081313
+--- !u!114 &3381634783105503206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,13 +112,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 7339372235852522587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554c5cf3d0691cb42900aa6b98286965, type: 3}
+  m_Script: {fileID: 11500000, guid: eee0d2223b2b52d4a9116c15e6afd8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7.5
   health: 10
   score: 100
   damageToPlayer: 10
+  lifeTime: 5
+  sinEccentricity: 0.4
+  rotCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.0194926
+      outSlope: 1.0194926
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1
+      value: 0.10194926
+      inSlope: 1.1731641
+      outSlope: 1.1731641
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.4
+      value: 0.5
+      inSlope: 0.6634179
+      outSlope: 0.6634179
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6
+      value: 0.5
+      inSlope: 0.8333335
+      outSlope: 0.8333335
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9
+      value: 1
+      inSlope: 0.8333335
+      outSlope: 0.8333335
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  birthTime: 0
+  p0: {x: 0, y: 0, z: 0}
+  p1: {x: 0, y: 0, z: 0}
 --- !u!54 &4567269935610588520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,8 +198,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 2
+  m_Constraints: 120
+  m_CollisionDetection: 3
 --- !u!64 &8722253676757077493
 MeshCollider:
   m_ObjectHideFlags: 0
