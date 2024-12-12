@@ -2,24 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class playerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
-    public float health;
+    public float pHealth;
     public float maxHealth;
-    public Image healthBar;
-    //public GameObject HealthBar;
+    public UnityEngine.UI.Image healthBar;
+
     public float damagePerHit = 10;
 
+    private void Awake()
+    {
+
+        GameObject hBarObject = GameObject.Find("hBar");
+        if (hBarObject != null)
+        {
+            healthBar = hBarObject.GetComponent<UnityEngine.UI.Image>();
+        }
+        else
+        {
+            Debug.LogError("Health Bar (hBar) not found.");
+        }
+
+    }
     void Start()
     {
-        maxHealth = health;
+        maxHealth = pHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        pHealth -= damagePerHit;
+        if (pHealth <= 0)
         {
             Die();
 
@@ -30,13 +45,13 @@ public class playerHealth : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        Debug.Log("Player hit by: " + go.tag);
+        Debug.Log("Player Health Script - Player hit by: " + go.tag);
 
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Player hit by Enemy!");
+            //Debug.Log("Player hit by Enemy! (Player Health Script)");
             //TakeDamage(damagePerHit);
-            health -= damagePerHit;
+            pHealth -= damagePerHit;
             Destroy(other.gameObject);
         }
     }
@@ -44,12 +59,13 @@ public class playerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player is dead!");
+        if (pHealth <= 0)
         {
             if (gameObject.CompareTag("Player"))  // Add logic for player death
-            {   
+            {
                 Destroy(gameObject);
                 Main.PLAYER_DIED();
+                Debug.Log("Player is dead!");
                 //healthBar.gameObject.SetActive(false);
             }
         }
@@ -58,6 +74,6 @@ public class playerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        healthBar.fillAmount = Mathf.Clamp(pHealth / maxHealth, 0, 1);
     }
 }

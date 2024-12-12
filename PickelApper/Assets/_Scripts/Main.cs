@@ -54,8 +54,10 @@ public class Main : MonoBehaviour
         float enemyInset = enemyInsetDefault;
 
         Vector3 pos = Vector3.zero;
-        pos.x = Random.Range(-camWidth + -enemyInset, camWidth + enemyInset);
-        pos.y = camHeight + enemyInset;
+        //pos.x = Random.Range(-camWidth + -enemyInset, camWidth + enemyInset);
+        //pos.y = camHeight + enemyInset;
+        pos.x = Random.Range(-bndCheck.camWidth + bndCheck.radius, bndCheck.camWidth - bndCheck.radius);
+        pos.y = bndCheck.camHeight - bndCheck.radius;
         go.transform.position = pos;
 
         //Invoke SpawnEnemy() again

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boundsType: 2
-  radius: 2
+  radius: 3
   keepOnScreen: 0
   screenLocs: 0
   camWidth: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  health: 10
+  eHealth: 10
   score: 100
   damageToPlayer: 10
 --- !u!54 &1987623964086885156

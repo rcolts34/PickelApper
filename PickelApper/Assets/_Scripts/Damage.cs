@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    public playerHealth pHealth;
+    public PlayerHealth pHealth;
+    public PlayerHealth damagePerHit;
     public float damage;
 
     void Start()
@@ -21,15 +22,15 @@ public class Damage : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Transform rootT = other.gameObject.transform.root;
-        GameObject go = rootT.gameObject;
-        Debug.Log("Player hit by: " + go.tag);
+        //Transform rootT = other.gameObject.transform.root;
+        //GameObject go = rootT.gameObject;
+        //Debug.Log("Player hit by: " + go.tag);
 
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player hit by Enemy!");
-            pHealth.health -= damage;
-        }
+        //if (other.CompareTag("Player"))
+        //{
+        //    Debug.Log("Player hit by Enemy!");
+        //    pHealth(takedamage);
+        //}
     }
 }
 

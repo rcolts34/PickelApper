@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1584895300906064754}
   - component: {fileID: 5665711991536367491}
+  - component: {fileID: 2200859339554669330}
   - component: {fileID: -5744252269142951230}
-  - component: {fileID: 5913449554483420273}
   - component: {fileID: 8307958313301088848}
   - component: {fileID: 7818148834567276586}
   m_Layer: 8
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584895300906064755}
   m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: -12.5, z: 0}
+  m_LocalPosition: {x: 0, y: -17, z: 0}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_Children:
   - {fileID: 1584895302036506544}
@@ -51,6 +51,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLevel: 3
+--- !u!114 &2200859339554669330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584895300906064755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb0e3933a3fde6b4dab29f44f2b0d980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pHealth: 100
+  maxHealth: 100
+  healthBar: {fileID: 0}
+  damagePerHit: 10
 --- !u!114 &-5744252269142951230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,22 +86,6 @@ MonoBehaviour:
   timeBetweenFiring: 0.5
   Projectile: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
   appleTransform: {fileID: 1762829798895117522}
---- !u!114 &5913449554483420273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584895300906064755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a194a1bf314c5d4da40487c7ac1767a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  healthBar: {fileID: 3661262456521844373, guid: 2bf2fee449b306b4a87bf9dde782af10, type: 3}
-  damagePerHit: 10
 --- !u!136 &8307958313301088848
 CapsuleCollider:
   m_ObjectHideFlags: 0

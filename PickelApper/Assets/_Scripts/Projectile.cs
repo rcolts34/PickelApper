@@ -17,24 +17,11 @@ public class Projectile: MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Hit Enemy!");
+            //Debug.Log("Hit Enemy!");
             Destroy(gameObject); // Destroy projectile
             Destroy(other.gameObject); // Destroy enemy
         }
     }
-
-
-
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.CompareTag("Enemy"))
-    //    {
-    //        Debug.Log("Hit Enemy! (2D)");
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-
     void Update()
     {
         // Move forward based on its roation

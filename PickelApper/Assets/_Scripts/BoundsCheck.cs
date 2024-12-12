@@ -17,8 +17,7 @@ public class BoundsCheck : MonoBehaviour
         offDown = 8
     }
     public enum eType { center, inset, outset };
-    //public int width = 1920;
-    //public int height = 1080;
+
 
 
     [Header("Inscribed")]

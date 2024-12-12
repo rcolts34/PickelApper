@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7339372235852522587}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3376273990179056766
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -119,25 +119,16 @@ MonoBehaviour:
   health: 10
   score: 100
   damageToPlayer: 10
-  lifeTime: 5
-  sinEccentricity: 0.4
+  lerpTime: 10
+  sinEccentricity: 0.6
   rotCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.0194926
-      outSlope: 1.0194926
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
       time: 0.1
-      value: 0.10194926
-      inSlope: 1.1731641
-      outSlope: 1.1731641
+      value: 0
+      inSlope: 1.6666666
+      outSlope: 1.6666666
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -145,8 +136,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.4
       value: 0.5
-      inSlope: 0.6634179
-      outSlope: 0.6634179
+      inSlope: 0.8333333
+      outSlope: 0.8333333
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -163,27 +154,16 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.9
       value: 1
-      inSlope: 0.8333335
-      outSlope: 0.8333335
+      inSlope: 1.666667
+      outSlope: 1.666667
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
+    m_PreInfinity: 1
     m_PostInfinity: 2
     m_RotationOrder: 4
   birthTime: 0
-  p0: {x: 0, y: 0, z: 0}
-  p1: {x: 0, y: 0, z: 0}
 --- !u!54 &4567269935610588520
 Rigidbody:
   m_ObjectHideFlags: 0

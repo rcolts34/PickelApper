@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Inscribed")]
     public float speed = 10f; // movement speed (10f = 10m/s)
-    public float health = 10; // Damage needed to destroy enemy
+    public float eHealth = 10; // Damage needed to destroy enemy
     public int score = 100; // Points earned for destroying enemy
     public float damageToPlayer = 10;
 
@@ -39,11 +39,11 @@ public class Enemy : MonoBehaviour
         if (bndCheck.LocIs(BoundsCheck.eScreenLocs.offDown))
         {
             {
-                playerHealth Phealth = FindObjectOfType<playerHealth>();
-                if (Phealth != null)
+                PlayerHealth pHealth = FindObjectOfType<PlayerHealth>();
+                if (pHealth != null)
                 {
-                    Debug.Log("Damage: Enemy reached goal!");
-                    Phealth.TakeDamage(damageToPlayer);
+                    Debug.Log("Damage: Enemy reached goal! (Enemy Script)");
+                    pHealth.TakeDamage(damageToPlayer);
                 }
             }
 
