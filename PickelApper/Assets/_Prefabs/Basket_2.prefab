@@ -116,9 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
-  health: 10
+  eHealth: 10
   score: 100
-  damageToPlayer: 10
+  damagePerHit: 10
+  pHealth: {fileID: 0}
   lerpTime: 10
   sinEccentricity: 0.6
   rotCurve:

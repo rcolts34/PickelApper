@@ -8,7 +8,6 @@ public class Main : MonoBehaviour
 {
     [DllImport("user32.dll")]
     public static extern bool SetCursorPos(float X, float Y);
-
     static private Main S;
 
     [Header("Inscribed")]
@@ -18,10 +17,10 @@ public class Main : MonoBehaviour
     public float camWidth;
     public float camHeight;
     public float gameRestartDelay = 2;
+    public bool spawnEnemies = true;
+    public WeaponDefinition[] weaponDefinitions;
 
     private BoundsCheck bndCheck;
-
-
 
     void Awake()
     {
@@ -41,9 +40,6 @@ public class Main : MonoBehaviour
 
         //SetCursorPos(camHeight, camWidth);  // Center the Cursor
     }
-
-
-
     public void SpawnEnemy()
     {
         // Pick a random enemy prefab to instantiate
@@ -54,14 +50,19 @@ public class Main : MonoBehaviour
         float enemyInset = enemyInsetDefault;
 
         Vector3 pos = Vector3.zero;
-        //pos.x = Random.Range(-camWidth + -enemyInset, camWidth + enemyInset);
-        //pos.y = camHeight + enemyInset;
         pos.x = Random.Range(-bndCheck.camWidth + bndCheck.radius, bndCheck.camWidth - bndCheck.radius);
         pos.y = bndCheck.camHeight - bndCheck.radius;
         go.transform.position = pos;
 
         //Invoke SpawnEnemy() again
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
+
+        if (!spawnEnemies)
+        {
+            Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
+            return;
+        }
+
     }
 
     void DelayedRestart()
@@ -73,9 +74,9 @@ public class Main : MonoBehaviour
     void Restart()
     {
         // Reload Scene_0 to restart the game
+        Debug.Log("Game Over. Scene Reloaded.");
         SceneManager.LoadScene("__Scene_0");
     }
-
     static public void PLAYER_DIED()
     {
         S.DelayedRestart();

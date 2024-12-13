@@ -14,11 +14,10 @@ public class Basket_2 : Enemy
 
     [Header("Enemy_2 Private Fields")]
 
-    [SerializeField] 
+    [SerializeField]
     private float birthTime;    // Interpolation start points
     private Quaternion baseRotation;
     private Vector3 p0, p1;    // Lerp Points
-
 
     void Start()
     {
@@ -68,7 +67,5 @@ public class Basket_2 : Enemy
         u = u + sinEccentricity * (Mathf.Sin(u * Mathf.PI * 2));
         pos = (1 - u) * p0 + u * p1;
 
-        //base.Move();
     }
-
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static BoundsCheck;
 
 /// <summary>
 /// Keep GameObject on screen
@@ -17,6 +18,7 @@ public class BoundsCheck : MonoBehaviour
         offDown = 8
     }
     public enum eType { center, inset, outset };
+    public PlayerHealth pHealth;
 
 
 
@@ -38,60 +40,163 @@ public class BoundsCheck : MonoBehaviour
         camWidth = camHeight * Camera.main.aspect;
     }
 
+    public void Update()
+    {
+        UpdateScreenLocs();
+    }
 
-    void LateUpdate()
-    // Find the checkRadius that will enable center, inset, or outset
+    void UpdateScreenLocs()
     {
         float checkRadius = 0;
+
+        // Determine the check radius for center, inset, or outset bounds
         if (boundsType == eType.inset) checkRadius = -radius;
         if (boundsType == eType.outset) checkRadius = radius;
 
         Vector3 pos = transform.position;
         screenLocs = eScreenLocs.onScreen;
 
-        // Restrict the x position to camWidth
+        // Check X position against camWidth
         if (pos.x > camWidth + checkRadius)
         {
-            pos.x = camWidth + checkRadius;
             screenLocs |= eScreenLocs.offRight;
-
         }
-
-        if (pos.x < -camWidth - checkRadius)
+        else if (pos.x < -camWidth - checkRadius)
         {
-            pos.x = -camWidth - checkRadius;
             screenLocs |= eScreenLocs.offLeft;
         }
 
-        // Restrict the Y position to camHeight
+        // Check Y position against camHeight
         if (pos.y > camHeight + checkRadius)
         {
-            pos.y = camHeight + checkRadius;
             screenLocs |= eScreenLocs.offUp;
         }
-
-        if (pos.y < -camHeight - checkRadius)
+        else if (pos.y < -camHeight - checkRadius)
         {
-            pos.y = -camHeight - checkRadius;
             screenLocs |= eScreenLocs.offDown;
         }
 
+        // Handle clamping if needed
         if (keepOnScreen && !isOnScreen)
         {
+            pos.x = Mathf.Clamp(pos.x, -camWidth - checkRadius, camWidth + checkRadius);
+            pos.y = Mathf.Clamp(pos.y, -camHeight - checkRadius, camHeight + checkRadius);
             transform.position = pos;
+
+            // Reset screenLocs to onScreen after clamping
             screenLocs = eScreenLocs.onScreen;
         }
+
     }
+
+    //void LateUpdate()
+    //// Find the checkRadius that will enable center, inset, or outset
+    //{
+    //    float checkRadius = 0;
+    //    if (boundsType == eType.inset) checkRadius = -radius;
+    //    if (boundsType == eType.outset) checkRadius = radius;
+
+    //    Vector3 pos = transform.position;
+    //    screenLocs = eScreenLocs.onScreen;
+
+    //    // Restrict the x position to camWidth
+    //    if (pos.x > camWidth + checkRadius)
+    //    {
+    //        pos.x = camWidth + checkRadius;
+    //        screenLocs |= eScreenLocs.offRight;
+
+    //    }
+
+    //    if (pos.x < -camWidth - checkRadius)
+    //    {
+    //        pos.x = -camWidth - checkRadius;
+    //        screenLocs |= eScreenLocs.offLeft;
+    //    }
+
+    //    // Restrict the Y position to camHeight
+    //    if (pos.y > camHeight + checkRadius)
+    //    {
+    //        pos.y = camHeight + checkRadius;
+    //        screenLocs |= eScreenLocs.offUp;
+    //    }
+
+    //    if (pos.y < -camHeight - checkRadius)
+    //    {
+    //        pos.y = -camHeight - checkRadius;
+    //        screenLocs |= eScreenLocs.offDown;
+    //    }
+
+    //    if (keepOnScreen && !isOnScreen)
+    //    {
+    //        transform.position = pos;
+    //        screenLocs = eScreenLocs.onScreen;
+    //    }
+    //}
+
+
 
     public bool isOnScreen
     {
         get{return (screenLocs == eScreenLocs.onScreen);}
+
     }
+
+    public bool isOffScreen
+    {
+        get{return (screenLocs == eScreenLocs.offDown);}
+    }
+
+
+    //public bool LocIs(eScreenLocs checkLoc)
+    //{
+    //    if (checkLoc == eScreenLocs.onScreen) return isOnScreen;
+    //    return ((screenLocs & checkLoc) == checkLoc);
+    //    if (checkLoc == eScreenLocs.offDown) return isOffScreen;
+    //    return ((screenLocs & checkLoc) == checkLoc);
+
+    //}
 
     public bool LocIs(eScreenLocs checkLoc)
     {
-        if (checkLoc == eScreenLocs.onScreen) return isOnScreen;
-        return ((screenLocs & checkLoc) == checkLoc);
+        if (checkLoc == eScreenLocs.onScreen)
+        {
+            return isOnScreen; // Return true or false for onScreen status
+
+
+        }
+
+        if (checkLoc == eScreenLocs.offDown)
+        {
+            return isOffScreen; // Return true or false for offDown status
+        }
+
+
+        // For other locations, perform bitwise comparison
+        return (screenLocs & checkLoc) == checkLoc;
+
+
+
+    }
+    private void HandleOffScreen()
+    {
+        // Logic for when the enemy moves off the bottom of the screen
+
+        if (pHealth == null)
+        {
+            pHealth = GameObject.FindWithTag("Player")?.GetComponent<PlayerHealth>();
+        }
+
+        if (pHealth != null && pHealth.pHealth > 0) // Check if health is above 0
+        {   
+
+        }
+
+        else if (pHealth != null && pHealth.pHealth <= 0) // Check if health is zero or below
+        {
+            Debug.Log("Player is dead, no further damage applied.");
+        }
+
+        Destroy(gameObject);
     }
 
 }

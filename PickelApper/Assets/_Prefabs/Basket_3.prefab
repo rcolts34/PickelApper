@@ -119,6 +119,11 @@ MonoBehaviour:
   eHealth: 10
   score: 100
   damageToPlayer: 10
+  lerpTime: 5
+  midpointYRange: {x: 1.5, y: 3}
+  drawDebugInfo: 1
+  points: []
+  birthTime: 0
 --- !u!54 &1987623964086885156
 Rigidbody:
   m_ObjectHideFlags: 0

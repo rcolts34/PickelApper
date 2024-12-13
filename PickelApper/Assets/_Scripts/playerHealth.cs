@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     public float damagePerHit = 10;
 
-    private void Awake()
+   void Awake()
     {
 
         GameObject hBarObject = GameObject.Find("hBar");
@@ -34,10 +34,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         pHealth -= damagePerHit;
+        //Debug.Log($"Player took {damage}. Current Health {pHealth}");
         if (pHealth <= 0)
         {
             Die();
-
         }
     }
 
@@ -45,33 +45,24 @@ public class PlayerHealth : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        Debug.Log("Player Health Script - Player hit by: " + go.tag);
+        //DebugUtils.LogDamage(other.gameObject);
+        //Debug.Log("Player Health Script - Player hit by: " + go.tag);
 
         if (other.CompareTag("Enemy"))
         {
-            //Debug.Log("Player hit by Enemy! (Player Health Script)");
-            //TakeDamage(damagePerHit);
-            pHealth -= damagePerHit;
+            TakeDamage(damagePerHit);
             Destroy(other.gameObject);
         }
     }
-
-
     void Die()
     {
         if (pHealth <= 0)
         {
-            if (gameObject.CompareTag("Player"))  // Add logic for player death
-            {
-                Destroy(gameObject);
-                Main.PLAYER_DIED();
-                Debug.Log("Player is dead!");
-                //healthBar.gameObject.SetActive(false);
-            }
+            Destroy(gameObject);
+            Main.PLAYER_DIED();
+            Debug.Log("Player is dead!");
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         healthBar.fillAmount = Mathf.Clamp(pHealth / maxHealth, 0, 1);

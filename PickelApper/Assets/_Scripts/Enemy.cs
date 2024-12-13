@@ -9,13 +9,20 @@ public class Enemy : MonoBehaviour
     public float speed = 10f; // movement speed (10f = 10m/s)
     public float eHealth = 10; // Damage needed to destroy enemy
     public int score = 100; // Points earned for destroying enemy
-    public float damageToPlayer = 10;
+    public float damagePerHit = 10;
+    public PlayerHealth pHealth;
+    public bool isOffScreen;
 
     protected BoundsCheck bndCheck;
 
     void Awake()
     {
         bndCheck = GetComponent<BoundsCheck>();
+
+        if (bndCheck == null)
+        {
+            Debug.LogError("BoundsCheck not found on Enemy!");
+        }
     }
     public Vector3 pos
     {
@@ -35,20 +42,44 @@ public class Enemy : MonoBehaviour
     {
         Move();
 
-        // Check where Enemy has gone off the bottom of the screen
-        if (bndCheck.LocIs(BoundsCheck.eScreenLocs.offDown))
+        // Update and check bndCheck status
+        if (bndCheck != null && bndCheck.LocIs(BoundsCheck.eScreenLocs.offDown))
         {
-            {
-                PlayerHealth pHealth = FindObjectOfType<PlayerHealth>();
-                if (pHealth != null)
-                {
-                    Debug.Log("Damage: Enemy reached goal! (Enemy Script)");
-                    pHealth.TakeDamage(damageToPlayer);
-                }
-            }
-
-            Destroy(gameObject);
+            //DebugUtils.LogEnemy(gameObject);
+            HandleOffScreen(GetBndCheck());
         }
+
+    }
+
+    private BoundsCheck GetBndCheck()
+    {
+        return bndCheck;
+    }
+
+    private void HandleOffScreen(BoundsCheck bndCheck)
+    {
+        // Logic for when the enemy moves off the bottom of the screen
+
+        if (pHealth == null)
+        {
+            pHealth = GameObject.FindWithTag("Player")?.GetComponent<PlayerHealth>();
+        }
+
+        if (pHealth != null && pHealth.pHealth > 0) // Check if health is above 0
+        {   
+
+            //Debug.Log("Enemy reached the bottom! Damaging player.");
+            pHealth.TakeDamage(damagePerHit);
+        }
+
+        else if (pHealth != null && pHealth.pHealth <= 0) // Check if health is zero or below
+        {
+            Debug.Log("Player is dead, no further damage applied.");
+        }
+
+        //DebugUtils.LogAndDestroy(gameObject);
+        Destroy(gameObject);
+
     }
 
     void OnCollisionEnter(Collision coll)
