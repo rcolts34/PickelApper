@@ -9,6 +9,7 @@ public class Main : MonoBehaviour
     [DllImport("user32.dll")]
     public static extern bool SetCursorPos(float X, float Y);
     static private Main S;
+    static private Dictionary<eWeaponType, WeaponDefinition> WEAP_DICT;
 
     [Header("Inscribed")]
     public GameObject[] prefabEnemies;
@@ -26,11 +27,18 @@ public class Main : MonoBehaviour
     {
         // Set bndCheck to reference BoundsCheck component on this GameObject
         S = this;
+
         bndCheck = GetComponent<BoundsCheck>();
 
         // Invoke SpawnEnemy() (every 2 seconds based on 0.5f)
         Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
 
+        WEAP_DICT = new Dictionary<eWeaponType, WeaponDefinition>();
+        foreach(WeaponDefinition def in weaponDefinitions)
+            {
+                WEAP_DICT[def.type] = def;
+            }
+            
     }
 
     void Start()
@@ -80,5 +88,14 @@ public class Main : MonoBehaviour
     static public void PLAYER_DIED()
     {
         S.DelayedRestart();
+    }
+
+    static public WeaponDefinition GET_WEAPON_DEFINITION(eWeaponType wt)
+    {
+        if (WEAP_DICT.ContainsKey(wt))
+        {
+            return (WEAP_DICT[wt]);
+        }
+        return (new WeaponDefinition());
     }
 }

@@ -326,11 +326,21 @@ MonoBehaviour:
   gameRestartDelay: 2
   spawnEnemies: 1
   weaponDefinitions:
+  - type: 0
+    letter: N
+    powerUpColor: {r: 0.44313726, g: 0.2352941, b: 0.2705882, a: 1}
+    weaponModelPrefab: {fileID: 405883479212155931, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+    projectilePrefab: {fileID: 405883479212155931, guid: 121eba649f8e4034c9522da0e77d20a1, type: 3}
+    projectileColor: {r: 0.44313726, g: 0.2352941, b: 0.2705882, a: 1}
+    damgeOnHit: 1
+    damagePerSec: 0
+    delayBetweenShots: 0.2
+    velocity: 50
   - type: 1
     letter: T
     powerUpColor: {r: 0.882353, g: 0.34901962, b: 0.16470589, a: 1}
     weaponModelPrefab: {fileID: 9008241867473033949, guid: c99e879e954510643bdd6855aeb8d86d, type: 3}
-    projectilePrefab: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
+    projectilePrefab: {fileID: 9008241867473033949, guid: c99e879e954510643bdd6855aeb8d86d, type: 3}
     projectileColor: {r: 1, g: 1, b: 1, a: 0}
     damgeOnHit: 1
     damagePerSec: 0
@@ -340,7 +350,7 @@ MonoBehaviour:
     letter: G
     powerUpColor: {r: 0.22745098, g: 0.67058825, b: 0.21960784, a: 1}
     weaponModelPrefab: {fileID: 2682619423510522183, guid: e88fcae6e7682674793b2564d56ef2f6, type: 3}
-    projectilePrefab: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
+    projectilePrefab: {fileID: 2682619423510522183, guid: e88fcae6e7682674793b2564d56ef2f6, type: 3}
     projectileColor: {r: 0.22937118, g: 0.6698113, b: 0.21905774, a: 0}
     damgeOnHit: 1
     damagePerSec: 0
@@ -350,7 +360,7 @@ MonoBehaviour:
     letter: R
     powerUpColor: {r: 0.6132076, g: 0.50037676, b: 0.3393853, a: 0}
     weaponModelPrefab: {fileID: 3956593464390142371, guid: 30c40a56459030f4796ce7a895601b68, type: 3}
-    projectilePrefab: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
+    projectilePrefab: {fileID: 3956593464390142371, guid: 30c40a56459030f4796ce7a895601b68, type: 3}
     projectileColor: {r: 0.6156863, g: 0.5019608, b: 0.34117648, a: 0}
     damgeOnHit: 1
     damagePerSec: 0
@@ -360,21 +370,11 @@ MonoBehaviour:
     letter: S
     powerUpColor: {r: 0.4431373, g: 0.23529413, b: 0.27058825, a: 1}
     weaponModelPrefab: {fileID: 4750090889422172516, guid: 4820bf5ca5d560740a9547d72b7dc956, type: 3}
-    projectilePrefab: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
+    projectilePrefab: {fileID: 4750090889422172516, guid: 4820bf5ca5d560740a9547d72b7dc956, type: 3}
     projectileColor: {r: 0.4431373, g: 0.23529413, b: 0.27058825, a: 1}
     damgeOnHit: 1
     damagePerSec: 0
     delayBetweenShots: 0.6
-    velocity: 50
-  - type: 5
-    letter: S
-    powerUpColor: {r: 0.8797644, g: 0.8867924, b: 0.34858185, a: 1}
-    weaponModelPrefab: {fileID: 3122048331429729578, guid: ea9160321466a8245896c68387a03faf, type: 3}
-    projectilePrefab: {fileID: 6297484996522968717, guid: 48bbd052934f6a3489e1ecc3c81a7b16, type: 3}
-    projectileColor: {r: 0.88235295, g: 0.8901961, b: 0.34901962, a: 1}
-    damgeOnHit: 0
-    damagePerSec: 0
-    delayBetweenShots: 0
     velocity: 50
 --- !u!114 &963194230
 MonoBehaviour:
@@ -646,64 +646,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1925409210
+--- !u!1001 &1864381423
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6741941611869959279, guid: 09af255c5914c5945912807b65792107, type: 3}
-      propertyPath: damagePerHit
-      value: 1
+    - target: {fileID: -5744252269142951230, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
+      propertyPath: Projectile
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalPosition.y
       value: -17
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 180
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064754, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064754, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1584895300906064755, guid: 09af255c5914c5945912807b65792107, type: 3}
+    - target: {fileID: 1584895300906064755, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
       propertyPath: m_Name
-      value: AppleTree_Health2
+      value: AppleTree_Health3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882505498274915691, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
+      propertyPath: _type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882505498274915691, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
+      propertyPath: def.type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 09af255c5914c5945912807b65792107, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ca88d5705e4c4ff42b6e09c7d8d4d404, type: 3}
