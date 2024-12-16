@@ -7,40 +7,74 @@ public class AppleTree : MonoBehaviour
     static public AppleTree S { get; private set; }
 
     [Header("Dynamic")][Range(0, 3)] [SerializeField]
-    private float _shieldLevel = 1;
+    //private float _shieldLevel = 1;
     public float _healthLevel = 1;
     private GameObject lastTriggerGo = null;
     public delegate void WeaponFireDelegate();
     public event WeaponFireDelegate fireEvent;
     public Weapon[] weapons;
-    private GameObject lastTriggerGo = null;
+
 
     Weapon GetEmptyWeaponSlot()
-    { 
-        for (int i=0; i <weapons.Length; i++)
-            {
-                if(weapons[i].type == eWeaponType.none)
-                {
-                    return (weapons[i]);
-                }
-            }
     {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (weapons[i].type == eWeaponType.none)
+            {
+                return (weapons[i]);
+            }
+        }
+        return (null);
+    }
+    
 
     void OnTriggerEnter(Collider other)
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        if ( go == lastTriggerGo ) return;
+        if (go == lastTriggerGo) return;
         lastTriggerGo = go;
+        Enemy enemy = go.GetComponent<Enemy>();
+        PowerUp pUp = go.GetComponent<PowerUp>();
         if (enemy != null)
         {
-            shieldLevel--;
+            healthLevel--;
             Destroy(go);
         }
-        Enemy enemy = go.GetComponent<Enemy>();
-        PowerUp pUp = lastTriggerGo.GetComponent<PowerUp>();        
+        else if (pUp != null)
+        {
+
+            AbsorbPowerUp(pUp);
+
+        }
     }
 
+    public void AbsorbPowerUp(PowerUp pUp)
+    {
+        switch (pUp.type) 
+        {
+            case eWeaponType.sunLight:
+                healthLevel++;
+                break;
+
+            default:
+                if (pUp.type == weapons[0].type)
+                {
+                    Weapon weap = GetEmptyWeaponSlot();
+                    if (weap != null)
+                    {
+                        weap.SetType(pUp.type);
+                    }
+                }
+                else
+                {
+                    ClearWeapons();
+                    weapons[0].SetType(pUp.type);
+                }
+                break;
+        }
+        pUp.AbsorbedBy(this.gameObject);
+    }
     public float healthLevel
     {
         get { return ( _healthLevel); } 
@@ -54,14 +88,17 @@ public class AppleTree : MonoBehaviour
         }
     }
 
-        void ClearWeapons()
+    void ClearWeapons()
     {
-        foreach ()
+        foreach (Weapon w in weapons)
+        {
+        w.SetType(eWeaponType.none);
+        }
     }
 
 
 
-    void Awake()
+void Awake()
     {
         if (S == null)
         {
@@ -72,6 +109,9 @@ public class AppleTree : MonoBehaviour
             Debug.LogError("AppleTree.Awake() - Attempted to assign second AppleTree.S!");
         }
         //fireEvent += TempFire;
+
+        ClearWeapons();
+        weapons[0].SetType(eWeaponType.none);
     }
 
     void Update()

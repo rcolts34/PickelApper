@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -60,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
             Main.PLAYER_DIED();
+            GameManager.Instance.ShowGameOver(Score.Instance.GetScore(), Score.Instance.GetHighScore());
             Debug.Log("Player is dead!");
         }
     }

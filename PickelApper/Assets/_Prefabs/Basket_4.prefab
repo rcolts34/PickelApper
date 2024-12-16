@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528c47186742ff84eaac9f7c73498dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
   boundsType: 2
   radius: 2
   keepOnScreen: 0
@@ -116,10 +117,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f899fd5ba3c4443a5d9e18107ef317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
   speed: 10
-  health: 10
-  score: 100
-  damageToPlayer: 10
+  eHealth: 10
+  score: 10
+  powerUpDropChance: 1
+  damagePerHit: 10
+  isOffScreen: 0
+  lerpTime: 15
+  sinEccentricity: 0.6
+  rotCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  birthTime: 0
 --- !u!54 &278758900403210386
 Rigidbody:
   m_ObjectHideFlags: 0

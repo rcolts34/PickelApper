@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528c47186742ff84eaac9f7c73498dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
   boundsType: 2
   radius: 2
   keepOnScreen: 0
@@ -116,9 +117,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  health: 10
-  score: 100
-  damageToPlayer: 10
+  eHealth: 10
+  score: 10
+  powerUpDropChance: 1
+  damagePerHit: 10
+  pHealth: {fileID: 0}
+  isOffScreen: 0
   waveFrequency: 2
   waveWidth: 4
   waveRotY: 45

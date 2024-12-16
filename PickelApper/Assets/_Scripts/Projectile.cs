@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoundsCheck))]
 public class Projectile : MonoBehaviour
@@ -14,7 +15,6 @@ public class Projectile : MonoBehaviour
 
     [Header("Dynamic")]
     public Rigidbody rigid;
-
     [SerializeField]
     private eWeaponType _type;
     public eWeaponType type
@@ -39,11 +39,16 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            //Debug.Log("Hit Enemy!");
+            Enemy enemy = other.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Score.Instance.AddScore(enemy.score);
+            }
             Destroy(gameObject); // Destroy projectile
             Destroy(other.gameObject); // Destroy enemy
         }
     }
+
     void Update()
     {
         if (bndCheck.LocIs(BoundsCheck.eScreenLocs.offUp))

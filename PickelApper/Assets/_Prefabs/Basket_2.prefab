@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528c47186742ff84eaac9f7c73498dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
   boundsType: 2
   radius: 2
   keepOnScreen: 0
@@ -115,11 +116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee0d2223b2b52d4a9116c15e6afd8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
-  eHealth: 10
-  score: 100
-  damagePerHit: 10
   pHealth: {fileID: 0}
+  speed: 5
+  eHealth: 10
+  score: 10
+  powerUpDropChance: 1
+  damagePerHit: 10
+  isOffScreen: 0
   lerpTime: 10
   sinEccentricity: 0.6
   rotCurve:

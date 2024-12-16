@@ -116,13 +116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6651f06e35e53704482ca8853f11a6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
   speed: 10
   eHealth: 10
-  score: 100
+  score: 10
+  powerUpDropChance: 1
   damagePerHit: 10
-  pHealth: {fileID: 0}
   isOffScreen: 0
-  lerpTime: 5
+  lerpTime: 10
   midpointYRange: {x: 1.5, y: 3}
   drawDebugInfo: 1
   points: []
