@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2314856}
   m_Layer: 9
   m_Name: Cylinder.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,12 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3126be87ed417d47a4581baa410712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pHealth: {fileID: 0}
   speed: 10
   eHealth: 10
   score: 10
   powerUpDropChance: 1
   damagePerHit: 10
-  pHealth: {fileID: 0}
   isOffScreen: 0
 --- !u!54 &2069863369276715546
 Rigidbody:

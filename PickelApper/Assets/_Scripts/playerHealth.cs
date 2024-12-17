@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     public UnityEngine.UI.Image healthBar;
 
     public float damagePerHit = 10;
+    private bool isInvulnerable = false;
+    private bool isDead = false;
 
    void Awake()
     {
@@ -27,6 +29,13 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+
+    private IEnumerator DamageCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isInvulnerable = false;
+    }
+
     void Start()
     {
         maxHealth = pHealth;
@@ -34,8 +43,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isInvulnerable) return;
+        
+        isInvulnerable = true;
+        StartCoroutine(DamageCooldown());
+
         pHealth -= damagePerHit;
-        //Debug.Log($"Player took {damage}. Current Health {pHealth}");
+        Debug.Log($"Player took {damage}. Current Health {pHealth}");
         if (pHealth <= 0)
         {
             Die();
@@ -46,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Transform rootT = other.gameObject.transform.root;
         GameObject go = rootT.gameObject;
-        //DebugUtils.LogDamage(other.gameObject);
+        DebugUtils.LogDamage(other.gameObject);
         //Debug.Log("Player Health Script - Player hit by: " + go.tag);
 
         if (other.CompareTag("Enemy"))
@@ -57,6 +71,14 @@ public class PlayerHealth : MonoBehaviour
     }
     void Die()
     {
+        if (isDead) return;
+        isDead = true;
+
+        Destroy(gameObject);
+        Main.PLAYER_DIED();
+
+
+
         if (pHealth <= 0)
         {
             Destroy(gameObject);

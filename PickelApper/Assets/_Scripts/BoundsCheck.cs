@@ -89,52 +89,6 @@ public class BoundsCheck : MonoBehaviour
 
     }
 
-    //void LateUpdate()
-    //// Find the checkRadius that will enable center, inset, or outset
-    //{
-    //    float checkRadius = 0;
-    //    if (boundsType == eType.inset) checkRadius = -radius;
-    //    if (boundsType == eType.outset) checkRadius = radius;
-
-    //    Vector3 pos = transform.position;
-    //    screenLocs = eScreenLocs.onScreen;
-
-    //    // Restrict the x position to camWidth
-    //    if (pos.x > camWidth + checkRadius)
-    //    {
-    //        pos.x = camWidth + checkRadius;
-    //        screenLocs |= eScreenLocs.offRight;
-
-    //    }
-
-    //    if (pos.x < -camWidth - checkRadius)
-    //    {
-    //        pos.x = -camWidth - checkRadius;
-    //        screenLocs |= eScreenLocs.offLeft;
-    //    }
-
-    //    // Restrict the Y position to camHeight
-    //    if (pos.y > camHeight + checkRadius)
-    //    {
-    //        pos.y = camHeight + checkRadius;
-    //        screenLocs |= eScreenLocs.offUp;
-    //    }
-
-    //    if (pos.y < -camHeight - checkRadius)
-    //    {
-    //        pos.y = -camHeight - checkRadius;
-    //        screenLocs |= eScreenLocs.offDown;
-    //    }
-
-    //    if (keepOnScreen && !isOnScreen)
-    //    {
-    //        transform.position = pos;
-    //        screenLocs = eScreenLocs.onScreen;
-    //    }
-    //}
-
-
-
     public bool isOnScreen
     {
         get{return (screenLocs == eScreenLocs.onScreen);}
@@ -145,16 +99,6 @@ public class BoundsCheck : MonoBehaviour
     {
         get{return (screenLocs == eScreenLocs.offDown);}
     }
-
-
-    //public bool LocIs(eScreenLocs checkLoc)
-    //{
-    //    if (checkLoc == eScreenLocs.onScreen) return isOnScreen;
-    //    return ((screenLocs & checkLoc) == checkLoc);
-    //    if (checkLoc == eScreenLocs.offDown) return isOffScreen;
-    //    return ((screenLocs & checkLoc) == checkLoc);
-
-    //}
 
     public bool LocIs(eScreenLocs checkLoc)
     {
@@ -173,8 +117,6 @@ public class BoundsCheck : MonoBehaviour
 
         // For other locations, perform bitwise comparison
         return (screenLocs & checkLoc) == checkLoc;
-
-
 
     }
     private void HandleOffScreen()

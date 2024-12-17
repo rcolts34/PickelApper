@@ -47,8 +47,6 @@ public class Main : MonoBehaviour
 
         bndCheck = GetComponent<BoundsCheck>();
 
-        // Invoke SpawnEnemy() (every 2 seconds based on 0.5f)
-        //Invoke(nameof(SpawnEnemy), 1f / enemySpawnRate);
 
         WEAP_DICT = new Dictionary<eWeaponType, WeaponDefinition>();
         foreach(WeaponDefinition def in weaponDefinitions)
@@ -66,46 +64,9 @@ public class Main : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            //Invoke(nameof(SpawnEnemy), enemySpawnRate);
         }
 
     }
-
-    void Start()
-    {
-        //camHeight = Camera.main.orthographicSize;
-        //camWidth = camHeight * Camera.main.aspect;
-
-        //SetCursorPos(camHeight, camWidth);  // Center the Cursor
-
-        //Invoke(nameof(SpawnEnemy), 1f / enemySpawnRate);
-
-    }
-    //public void SpawnEnemy()
-    //{
-    //    // Pick a random enemy prefab to instantiate
-    //    int ndx = Random.Range(0, prefabEnemies.Length);
-    //    GameObject go = Instantiate<GameObject>(prefabEnemies[ndx]);
-
-    //    // Postion enemy above the screen with a random x position
-    //    float enemyInset = enemyInsetDefault;
-
-    //    Vector3 pos = Vector3.zero;
-    //    pos.x = Random.Range(-bndCheck.camWidth + bndCheck.radius, bndCheck.camWidth - bndCheck.radius);
-    //    pos.y = bndCheck.camHeight - bndCheck.radius;
-    //    go.transform.position = pos;
-
-    //    //Invoke SpawnEnemy() again
-    //    Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
-
-    //    if (!spawnEnemies)
-    //    {
-    //        Invoke(nameof(SpawnEnemy), 1f / enemySpawnPerSecond);
-    //        return;
-    //    }
-
-    //}
-
     public void SpawnEnemy()
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length >= maxEnemies)
@@ -129,19 +90,8 @@ public class Main : MonoBehaviour
             pos.y = bndCheck.camHeight - bndCheck.radius;
             go.transform.position = pos;
 
-            ////Invoke SpawnEnemy() again
-            //Invoke(nameof(SpawnEnemy), 1f / enemySpawnRate);
 
-            //if (!spawnEnemies)
-            //{
-            //    Invoke(nameof(SpawnEnemy), 1f / enemySpawnRate);
-            //    return;
-            //}
         }
-
-        // Schedule the next spawn
-        //Invoke(nameof(SpawnEnemy), enemySpawnRate);
-
 
         //Debug.Log($"Spawn Rate Set to: {enemySpawnRate} , Enemies per spawn set to: {enemiesPerSpawn}");
         Debug.Log($"SpawnEnemy called. Active Invokes: {enemySpawnRate}, Enemies On Screen: {GameObject.FindGameObjectsWithTag("Enemy").Length}");
@@ -159,9 +109,6 @@ public class Main : MonoBehaviour
 
     public void SetSpawnRate(float rate)
     {
-        //enemySpawnRate = rate;
-        //CancelInvoke(nameof(SpawnEnemy)); // Cancel previous spawns
-        //Invoke(nameof(SpawnEnemy), enemySpawnRate); // Restart with new rate
 
         // Ensure the new spawn rate is set
         enemySpawnRate = rate;

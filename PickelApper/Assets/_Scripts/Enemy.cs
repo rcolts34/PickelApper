@@ -19,7 +19,24 @@ public class Enemy : MonoBehaviour
     public bool isOffScreen;
 
     protected BoundsCheck bndCheck;
+    private bool hasDamagedPlayer = false;
 
+    private void HandleOffScreen(BoundsCheck bndCheck)
+    {
+        if (hasDamagedPlayer) return;
+        if (pHealth == null)
+        {
+            pHealth = GameObject.FindWithTag("Player")?.GetComponent<PlayerHealth>();
+        }
+
+    if (pHealth != null && pHealth.pHealth > 0)
+    {
+            pHealth.TakeDamage(damagePerHit);
+            hasDamagedPlayer = true;
+    }
+
+        Destroy(gameObject);
+    }
 
     void Awake()
     {
@@ -60,31 +77,6 @@ public class Enemy : MonoBehaviour
         return bndCheck;
     }
 
-    private void HandleOffScreen(BoundsCheck bndCheck)
-    {
-        // Logic for when the enemy moves off the bottom of the screen
-
-        if (pHealth == null)
-        {
-            pHealth = GameObject.FindWithTag("Player")?.GetComponent<PlayerHealth>();
-        }
-
-        if (pHealth != null && pHealth.pHealth > 0) // Check if health is above 0
-        {   
-
-            //Debug.Log("Enemy reached the bottom! Damaging player.");
-            pHealth.TakeDamage(damagePerHit);
-        }
-
-        else if (pHealth != null && pHealth.pHealth <= 0) // Check if health is zero or below
-        {
-            Debug.Log("Player is dead, no further damage applied.");
-        }
-
-        //DebugUtils.LogAndDestroy(gameObject);
-        Destroy(gameObject);
-
-    }
 
     void OnCollisionEnter(Collision coll)
     {
@@ -140,9 +132,6 @@ public class Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
         
-    
-
-
     public virtual void Move()
     {
         Vector3 tempPos = pos;

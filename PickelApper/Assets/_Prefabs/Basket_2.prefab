@@ -123,7 +123,7 @@ MonoBehaviour:
   powerUpDropChance: 1
   damagePerHit: 10
   isOffScreen: 0
-  lerpTime: 10
+  lerpTime: 12.5
   sinEccentricity: 0.6
   rotCurve:
     serializedVersion: 2
